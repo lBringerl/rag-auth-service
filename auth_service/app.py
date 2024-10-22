@@ -2,8 +2,10 @@ import uvicorn
 from fastapi import FastAPI, status
 from fastapi.responses import JSONResponse
 
-from auth_service.config.constants import MAIN_HOST, MAIN_PORT
+from auth_service.config.settings import Settings
 
+
+settings = Settings()
 
 app = FastAPI()
 
@@ -16,7 +18,8 @@ async def healthcheck():
 
 
 def main():
-    uvicorn.run('app:app', host=MAIN_HOST, port=MAIN_PORT)
+    """Main function."""
+    uvicorn.run('app:app', host=settings.MAIN_HOST, port=settings.MAIN_PORT)
 
 
 if __name__ == '__main__':
