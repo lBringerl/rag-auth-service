@@ -1,6 +1,6 @@
 from fastapi import APIRouter, status  # HTTPException,
 
-from auth_service.models.users import User
+from auth_service.models.config.users import User
 
 
 user_router = APIRouter(
