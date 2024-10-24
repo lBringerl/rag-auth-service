@@ -5,8 +5,8 @@ services:
     image: quay.io/keycloak/keycloak:latest
     container_name: keycloak
     environment:
-      - KEYCLOAK_USER=admin
-      - KEYCLOAK_PASSWORD=admin
+       - KC_BOOTSTRAP_ADMIN_USERNAME=admin # Имя временного администратора
+       - KC_BOOTSTRAP_ADMIN_PASSWORD=admin_password # Пароль временного администратора
     ports:
       - 8080:8080
     command: start-dev
