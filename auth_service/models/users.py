@@ -7,7 +7,7 @@ class UserRole(str, enum.Enum):
 
     Admin = 'Admin'
     DataScientist = 'DataScientist'
-    user = 'user'
+    user = 'User'
 
 
 class User(pydantic.BaseModel):
