@@ -3,11 +3,15 @@ from fastapi import FastAPI, status
 from fastapi.responses import JSONResponse
 
 from auth_service.config.settings import Settings
+from auth_service.api.v1.routers.users import user_router
 
 
 settings = Settings()
 
 app = FastAPI()
+
+
+app.include_router(user_router)
 
 
 @app.get('/health', status_code=status.HTTP_200_OK)
