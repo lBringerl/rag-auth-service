@@ -24,4 +24,4 @@ async def register_user() -> RedirectResponse:
         f'&response_type=code&scope=openid'
         f'&redirect_uri={keycloak_settings.KEYCLOAK_REDIRECT_URI}'
     )
-    return RedirectResponse(url=url)
+    return RedirectResponse(url=url, status_code=status.HTTP_200_OK)
