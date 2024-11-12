@@ -15,13 +15,13 @@ user_router = APIRouter(
 
 
 @user_router.get(
-        '/register', status_code=status.HTTP_200_OK
+        '/register', status_code=status.HTTP_307_TEMPORARY_REDIRECT
     )
 async def register_user() -> RedirectResponse:
     url = (
         f'{keycloak_settings.KEYCLOAK_URL}'
-        f'?client_id={keycloak_settings.KEYCLOAK_CLIENT_ID}'
+        f'?client_id={keycloak_settings.CLIENT_ID}'
         f'&response_type=code&scope=openid'
-        f'&redirect_uri={keycloak_settings.KEYCLOAK_REDIRECT_URI}'
+        f'&redirect_uri={keycloak_settings.REDIRECT_URI}'
     )
-    return RedirectResponse(url=url, status_code=status.HTTP_200_OK)
+    return RedirectResponse(url=url)

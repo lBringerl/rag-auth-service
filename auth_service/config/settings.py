@@ -14,23 +14,23 @@ class Settings(BaseSettings):
 class KeycloakSettings(BaseSettings):
     """Settings for the keycloak."""
 
-    KEYCLOAK_REALM: str = 'RAGOps_authh_service'
-    KEYCLOAK_CLIENT_ID: str = 'myclient'
-    KEYCLOAK_REDIRECT_URI: str = 'http://localhost:8000/callback'
+    REALM: str = 'RAGOps_authh_service'
+    CLIENT_ID: str = 'myclient'
+    REDIRECT_URI: str = 'http://localhost:8000/callback'
     CLIENT_SECRET: str = 'emfy67UgJnpRfgB9KEPOt0DDS6hRgQSs'
 
     # URL для авторизации
     @property
     def KEYCLOAK_URL(self):
         return (
-            f'http://localhost:8080/realms/{self.KEYCLOAK_REALM}/'
+            f'http://localhost:8080/realms/{self.REALM}/'
             'protocol/openid-connect/auth'
         )
 
     @property
     def KEYCLOAK_TOKEN_URL(self):
         return (
-            f'http://localhost:8080/realms/{self.KEYCLOAK_REALM}/'
+            f'http://localhost:8080/realms/{self.REALM}/'
             'protocol/openid-connect/token'
         )
 
