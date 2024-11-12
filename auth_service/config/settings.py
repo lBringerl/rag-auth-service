@@ -16,7 +16,7 @@ class KeycloakSettings(BaseSettings):
 
     REALM: str = 'RAGOps_authh_service'
     CLIENT_ID: str = 'myclient'
-    REDIRECT_URI: str = 'http://localhost:8000/callback'
+    REDIRECT_URI: str = 'http://localhost:8000/users/callback'
     CLIENT_SECRET: str = 'emfy67UgJnpRfgB9KEPOt0DDS6hRgQSs'
 
     # URL для авторизации
