@@ -15,7 +15,9 @@ app.include_router(user_router)
 
 
 @app.get('/health', status_code=status.HTTP_200_OK)
-async def healthcheck():
+async def healthcheck() -> JSONResponse:
+    """Healthcheck."""
+
     return JSONResponse(
         content={'status': 'OK'}, status_code=status.HTTP_200_OK
     )
@@ -23,6 +25,7 @@ async def healthcheck():
 
 def main():
     """Main function."""
+
     uvicorn.run('app:app', host=settings.MAIN_HOST, port=settings.MAIN_PORT)
 
 
